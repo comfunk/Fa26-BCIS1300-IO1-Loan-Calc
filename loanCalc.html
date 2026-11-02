@@ -10,8 +10,8 @@ function loanCalc() {
   let r = document.getElementById("r").value;
   let n = document.getElementById("n").value;
   let P = ((r/100/12) * PV) / (1-(1+(r/100/12))**-(n*12));
-  let P = num.toFixed(2);
-  document.getElementById("p").innerHTML = P;
+  let P = P.toFixed(2);
+  document.getElementById("P").innerHTML = P;
 }
   
 </script>
