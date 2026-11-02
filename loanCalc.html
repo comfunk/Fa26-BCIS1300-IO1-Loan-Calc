@@ -6,12 +6,12 @@
 <script>
 
 function loanCalc() {
-  let PV = document.getElementById("PV").value;
-  let r = document.getElementById("r").value;
-  let n = document.getElementById("n").value;
-  let P = ((r/100/12) * PV) / (1-(1+(r/100/12))**-(n*12));
-  let P = P.toFixed(2);
-  document.getElementById("P").innerHTML = P;
+    let PV = document.getElementById("total").value;
+    let r = document.getElementById("apr").value;
+    let n = document.getElementById("years").value;
+    let P = ((r/100/12) * PV) / (1-(1+(r/100/12))**-(n*12));
+    let ans = P.toFixed(2);
+    document.getElementById("monthly").innerHTML = ans;
 }
   
 </script>
@@ -20,15 +20,15 @@ function loanCalc() {
 <body>
 
 <p>
-  Loan Amount = <input id="PV"> <br>
-  Annual Interest Rate = <input id="r"> <br>
-  Years of Payments = <input id="n"> <br>
+    Loan Amount = <input id="total"> <br>
+    Annual Interest Rate = <input id="apr"> <br>
+    Years of Payments = <input id="years"> <br>
   
-  <button onclick="loanCalc()"> Calculate Monthly Payment </button>
+    <button onclick="loanCalc()"> Calculate Monthly Payment </button>
 </p>
 
 <p>
- If you have a $<span id="PV"> [] </span> for <span id="n"> [] </span> years at <span id="r"> [] </span>% interest, your monthly payment is $<span id="P"> [] </span>
+    If you have a $<span id="PV"> [] </span> for <span id="n"> [] </span> years at <span id="r"> [] </span>% interest, your monthly payment is $<span id="monthly"> [] </span>
 </p>
 
 <script>
