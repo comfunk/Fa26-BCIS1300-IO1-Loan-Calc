@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+<script>
+
+function loanCalc() {
+  let PV = document.getElementById("PV").value;
+  let r = document.getElementById("r").value;
+  let n = document.getElementById("n").value;
+  let P = ((r/100/12) * PV) / (1-(1+(r/100/12))**-(n*12));
+  let P = num.toFixed(2);
+  document.getElementById("p").innerHTML = P;
+}
+  
+</script>
+  
+</head>
+<body>
+
+<p>
+  Loan Amount = <input id="PV"> <br>
+  Annual Interest Rate = <input id="r"> <br>
+  Years of Payments = <input id="n"> <br>
+  
+  <button onclick="loanCalc()"> Calculate Monthly Payment </button>
+</p>
+
+<p>
+ If you have a $<span id="PV"> [] </span> for <span id="n"> [] </span> years at <span id="r"> [] </span>% interest, your monthly payment is $<span id="P"> [] </span>
+</p>
+
+<script>
+  
+</script>
+
+</body>
+</html> 
