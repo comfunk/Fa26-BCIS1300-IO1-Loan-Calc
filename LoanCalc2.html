@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan Calculator</title>
+
+<script>
+
+function loanCalc() {
+    let PV = Number(document.getElementById("total").value);
+    let r = Number(document.getElementById("apr").value);
+    let n = Number(document.getElementById("years").value);
+    
+    // Check for empty or invalid inputs
+    if (document.getElementById("total").value.trim() === "" ||
+        document.getElementById("apr").value.trim() === "" ||
+        document.getElementById("years").value.trim() === "" ||
+        !Number.isFinite(PV) ||
+        !Number.isFinite(r) ||
+        !Number.isFinite(n) ||
+        PV <= 0 || r < 0 || n <= 0) {
+        
+        document.getElementById("ans").innerHTML =
+            "Please enter valid loan information.";
+        return;
+    }
+
+    let P;
+
+    // Calculate monthly payment
+    if (r === 0) {
+        //P = PV / (n * 12);
+        let ans = "Sorry, " + r + " is not a valid rate. Please submit a new number."
+    } else {
+        P = ((r/100/12) * PV) /
+            (1 - (1 + (r/100/12)) ** -(n*12));
+        let ans = "If you have a $" + PV +
+        " loan for " + n +
+        " years at " + r +
+        "% interest, your monthly payment is $" +
+        P.toFixed(2) + ".";
+    }
+
+    // let ans = "If you have a $" + PV +
+    //    " loan for " + n +
+    //    " years at " + r +
+    //    "% interest, your monthly payment is $" +
+    //    P.toFixed(2) + ".";
+
+    document.getElementById("ans").innerHTML = ans;
+}
+
+</script>
+
+</head>
+<body>
+
+<p>
+    Loan Amount = <input id="total" type="number" min="0" step="any"> <br>
+    Annual Interest Rate = <input id="apr" type="number" min="0" step="any"> <br>
+    Years of Payments = <input id="years" type="number" min="0" step="any"> <br>
+
+    <button onclick="loanCalc()">Calculate Monthly Payment</button>
+</p>
+
+<hr>
+
+<p>
+    <span id="ans"> [] </span>
+</p>
+
+</body>
+</html>
+
+</body>
+</html> 
