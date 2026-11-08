@@ -30,15 +30,12 @@ function loanCalc() {
     // Calculate monthly payment
     if (r === 0) {
         //P = PV / (n * 12);
-        let ans = "Sorry, " + r + " is not a valid rate. Please submit a new number."
+        document.getElementById("ans").innerHTML =
+            "Sorry, " + r + " is not a valid rate. Please submit a new number.";
+        return;
     } else {
         P = ((r/100/12) * PV) /
             (1 - (1 + (r/100/12)) ** -(n*12));
-        let ans = "If you have a $" + PV +
-        " loan for " + n +
-        " years at " + r +
-        "% interest, your monthly payment is $" +
-        P.toFixed(2) + ".";
     }
 
     let ans = "If you have a $" + PV +
