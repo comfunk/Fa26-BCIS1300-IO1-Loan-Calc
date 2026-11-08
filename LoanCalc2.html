@@ -25,10 +25,11 @@ function loanCalc() {
         return;
     }
 
-    let P;
+    let P = ((r/100/12) * PV) /
+            (1 - (1 + (r/100/12)) ** -(n*12));;
 
     // Calculate monthly payment
-    if (r === 0) {
+    /*if (r === 0) {
         //P = PV / (n * 12);
         document.getElementById("ans").innerHTML =
             "Sorry, " + r + " is not a valid rate. Please submit a new number.";
@@ -36,7 +37,7 @@ function loanCalc() {
     } else {
         P = ((r/100/12) * PV) /
             (1 - (1 + (r/100/12)) ** -(n*12));
-    }
+    }*/
 
     let ans = "If you have a $" + PV +
         " loan for " + n +
